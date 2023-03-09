@@ -1,0 +1,167 @@
+.section-collection {
+    height: 100vh;
+
+    padding: 2% 6%;
+
+    .tiltle {
+        padding: 4%;
+        display: flex;
+        .line {
+            width: 15%;
+            height: 2px;
+            background-color: #000;
+            position: relative;
+            right: -1%;
+            top: 16px;
+        }
+    }   
+    .content-collection{
+        // margin: 0 6%;
+        .img-customize {
+            height: 373px;
+            width: 92% !important;
+            margin: 0 32%;
+
+            .clothing-image{
+                height: 100%;
+                width: 100%;
+                background-size: cover;
+                background-repeat: no-repeat;
+                background-position: center;
+                // margin: 0 4%;
+                
+            }
+        }
+
+        .description {
+            display: flex;
+
+            .clothing-name{
+                width: 50%;
+            }
+
+            .clothing-price {
+                width: 50%;
+                text-align: end;
+            }
+    
+
+            
+        }
+
+        
+
+        h3 {
+            display: block;
+            width: 100%;
+            height: 100%;
+        }
+    }
+
+    .leave-to-page-collection{
+        padding: 3%;
+        justify-content: center;
+
+        .leave-button{
+            text-align: center;
+            background-color: #000;
+            margin-left: 36%;
+            margin-right: 36%;
+
+            &:hover {
+                cursor: pointer;
+            }
+            h2 {
+                padding: 2% 10%;
+                color: #fff;
+                font-size: 24px;
+            }
+
+
+            
+        }
+    }
+
+// reset slick slider css
+.slick-prev{
+    // border: 1px solid #d7d7d7 !important;
+    z-index: 1000 !important;
+    left: -10px !important;
+    height: 48px !important;
+    width: 44px !important;
+
+    &:hover {
+        background: #eceaea !important;
+    }
+}
+
+.slick-prev::before {
+    // font-family: FontAwesome !important;
+    color: #ccc;
+}
+.slick-next{
+    // border: 1px solid #d7d7d7 !important;
+    z-index: 1000 !important;
+    right: -10px !important;
+    height: 48px !important;
+    width: 44px !important;
+    &:hover {
+        background: #eceaea !important;
+    }
+    }
+.slick-next::before {
+        // font-family: FontAwesome !important;
+        color: #ccc;
+    }
+
+}
+
+.collection-demo {
+    height: 82vh;
+    padding: 2% 0;
+
+    .collection-demo-content {
+        height: 475px;
+        width: 100% !important;
+
+        .image-for-slider {
+            height: 100%;
+            width: 100%;
+            background-size: cover;
+            background-repeat: no-repeat;
+            background-position: center;
+        }
+    }
+
+    .slick-prev{
+        // border: 1px solid #d7d7d7 !important;
+        z-index: 1000 !important;
+        left: -10px !important;
+        height: 48px !important;
+        width: 44px !important;
+    
+        &:hover {
+            background: #eceaea !important;
+        }
+    }
+    
+    .slick-prev::before {
+        // font-family: FontAwesome !important;
+        color: #ccc;
+    }
+    .slick-next{
+        // border: 1px solid #d7d7d7 !important;
+        z-index: 1000 !important;
+        right: -10px !important;
+        height: 48px !important;
+        width: 44px !important;
+        &:hover {
+            background: #eceaea !important;
+        }
+        }
+    .slick-next::before {
+            // font-family: FontAwesome !important;
+            color: #ccc;
+        }
+    
+}

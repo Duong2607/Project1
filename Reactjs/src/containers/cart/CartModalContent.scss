@@ -1,0 +1,58 @@
+.cart-modal-content{
+    overflow: auto;
+    max-height: 45vh;
+    
+    .cart-item {
+        display: flex;
+        height: 22vh;
+        padding: 1rem;
+        .image-clothing {
+            width: 30%;
+            background-size: cover;
+            background-repeat: no-repeat;
+            background-position: center;
+        }
+
+        .info-clothing {
+            width: 70%;
+            padding-left: 1rem;
+
+            .header-cart {
+                display: flex;
+                position: relative;
+                i{
+                   position: absolute;
+                   right: 4%;
+                   cursor: pointer;
+                }
+
+            }
+            p {
+                margin: 0.9rem 0;
+            }
+
+            .size-clothing {
+                display: flex;
+                p {
+                    margin: 0 0.5rem;
+                }
+                
+            }
+            .quantity-clothing {
+                display: flex;
+
+                p {
+                    margin: 0 0.5rem;
+                    cursor: pointer;
+                    font-size: 20px;
+                    line-height: 2.8vh;
+                }
+            }
+        }
+    }
+
+    li {
+        text-align: center;
+        padding: 2.4rem;
+    }
+}

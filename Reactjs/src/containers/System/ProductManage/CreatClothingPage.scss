@@ -1,0 +1,34 @@
+
+    .body-fix-modal {
+        margin: 16px;
+        display: grid;
+        grid-template: auto/auto auto;
+        grid-gap: 16px;
+        // gap: 10px;
+        .input-container {
+
+            width: 100%;
+            input {
+                width: 100%;
+                border-radius: 3px;
+                border: 1px solid grey;
+                height: 30px;
+                outline: none;
+                padding: 0 10px;
+            }
+            select {
+                width: 100%;
+                border-radius: 3px;
+                border: 1px solid grey;
+                height: 30px;
+                outline: none;
+                padding: 0 10px;
+            }
+        }
+  }
+
+.creatbutton {
+    position: absolute;
+    right: 15px;
+}
+

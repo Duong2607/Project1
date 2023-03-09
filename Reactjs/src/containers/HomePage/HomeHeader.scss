@@ -1,0 +1,168 @@
+.all-header {
+
+    position: fixed;
+    width: 100%;
+    z-index: 100;
+    .home-header-container {
+
+        height: 150px;
+        width: 100%;
+        .home-header-content {
+            width: 100%;
+            height: 100%;
+            flex-direction: column;
+
+            .information{
+                height: 25%;
+                display: flex;
+                background-color: #333;
+
+                .hotline {
+                    height: 100%;
+                    width: 50%;
+                    text-align: center;
+                    display: flex;
+                    justify-content: center;
+                    align-items: center;
+                    color: #cccccc;
+                    font-size: 14px;
+                    padding-right: 100px;
+                    cursor: pointer;
+
+                }
+                .up-in-ca {
+                    height: 100%;
+                    width: 50%;
+                    display: flex;
+                    justify-content: center;
+                    align-items: center;
+                    color: #cccccc;
+                    padding-left: 100px;
+
+                    .child-uia {
+                        margin: 0 16px;
+                        font-size: 14px;
+                        cursor: pointer;
+                    }
+                    
+                }
+            }
+            .logo {
+                height: 40%;
+                text-align: center;
+                
+                img {
+                    width: 1.5rem;
+                    z-index: 1000;
+                    position: fixed;
+                    top: 7.2%;
+                    transform: translateX(-50%);
+                }
+
+
+            }
+        }
+
+    }
+
+
+    .fixed-content{
+        position: fixed;
+        width: 100%;
+        background-color: #fff;
+        top: 37px;
+    .home-content-container {
+        padding: 0 160px ;
+        position: relative;
+        .main-nav{
+            display: flex;
+            
+            .child1-nav {
+                padding: 16px 0;
+                width: 50%;
+                .main-list{
+                    list-style: none;
+                    display: flex;
+                    margin-bottom: 0;
+                        li {
+                            position: relative;
+                            cursor: pointer;
+                            span{
+                                color: #333;
+                                text-decoration: none;
+                                text-transform: uppercase;
+                                margin: 0 16px;
+                            
+                            }
+
+                            .bonus-clothing {
+                                position: absolute;
+                                list-style: none;
+                                background-color: #fff;
+                                box-shadow: 0 0 10px rgba(0, 0, 0, 0.3);
+                                min-width: 160px;
+                                top: 100%;
+                                left: 0;
+                                padding-left: 0;
+                                height: 98px;
+                                text-align: center;
+                                display: none;
+                                z-index: 10;
+                                li {
+                                padding: 6px 0;
+                                &:hover {
+                                    background-color: rgb(151, 154, 247);
+                                    cursor: pointer;
+                                }
+                                    a{
+                                        margin: 0 0;
+                                        width: 100%;
+                                        color: #000;
+                                        padding: 0 56px;
+                                    
+                                    }
+                                    
+                                }
+                                
+                            }
+                        }
+                        .clothing-node{
+                            &:hover ul{
+                                display: block;
+                            
+                                
+                            }
+                        }
+                }
+            
+            }
+            .child2-nav {
+                display: flex;
+                width: 50%;
+                justify-content:right;
+                text-align: center;
+                line-height: 55px;
+            .search-item {
+                margin-right: 32px;
+                cursor: pointer;
+            }
+            .cart-item {
+                cursor: pointer;
+            }
+            }
+        }
+        .red-line{
+            top: 100%;
+            position: absolute;
+            display: block;
+            background-color: rgb(82, 19, 19);
+            width: 80px;
+            height: 3px;
+            left: 50%;
+            transform: translateX(-50%);
+
+        }
+    }
+    }
+}
+

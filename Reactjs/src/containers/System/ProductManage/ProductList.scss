@@ -1,0 +1,31 @@
+table {
+    font-family: arial, sans-serif;
+    border-collapse: collapse;
+    width: 100%;
+
+    .productimg {
+      height: 80px;
+      background-size: contain;
+      background-repeat: no-repeat;
+      background-position: center;
+    }
+  }
+  
+  td, th {
+    border: 1px solid #dddddd;
+    text-align: center;
+    padding: 8px;
+    justify-content: center;
+  }
+
+  .view-button {
+    color: #403791;
+    cursor: pointer;
+  }
+  .delete {
+    color: red;
+  }
+  
+  tr:nth-child(even) {
+    background-color: #dddddd;
+  }

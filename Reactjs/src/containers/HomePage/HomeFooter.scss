@@ -1,0 +1,24 @@
+.footer {
+    background-color: black;
+    width: 100%;
+    min-height: 150px;
+    padding-bottom: 15rem;
+
+    .main-footer {
+        display: grid;
+        grid-template-columns: repeat(4,minmax(0,1fr));
+        gap: 2rem;
+        color: #fff;
+    }
+    .mt-5 {
+       
+        .social-network {
+            display: flex;
+            list-style: none;
+            padding: 0 0;
+            justify-content: space-between;
+            font-size: 44px;
+        }
+    }
+
+}
