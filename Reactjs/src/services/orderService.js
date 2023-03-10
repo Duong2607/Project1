@@ -7,4 +7,10 @@ const addOrder = (data) => {
 const getAllOrder = () => {
     return axios.get('/api/get-all-orders', {});
 }
-export { addOrder,getAllOrder }
+
+const getOrderById = (id) => {
+    return axios.post('/api/get-orders-by-id', {
+        id: id
+    })
+}
+export { addOrder,getAllOrder, getOrderById }

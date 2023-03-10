@@ -27,6 +27,7 @@ class DetailClothingPage extends Component {
 
 
     async componentDidMount() {
+
         let res = await getClothing(this.props.match.params.name)
         
             this.setState({
@@ -61,7 +62,7 @@ class DetailClothingPage extends Component {
         // for(let i = 0; i < arrInput.length; i++) {
             if(!this.state[arrInput[0]]){
                 isValid = false;
-                alert('Missing parameter: size');
+                alert('Vui lòng chọn size');
         //         break;
             }
         // }
@@ -94,46 +95,38 @@ class DetailClothingPage extends Component {
     }
 
     addToCart = async() =>{
+        if(this.props.clientIsLoggedIn) {
+
+        
         let isValid= this.checkValideInput();
         
         if(isValid){
-            if(this.props.clientIsLoggedIn)
-            {
+            
+            
                 let data = await addCart(this.state)
-                
-                // if(data.errCode==0) {
-                //     if(this.state.addCartSuccess == false) {
-                //         this.setState({
-                //             addCartSuccess: true
-                //         })
-                //     }
-                //     else {
-                //         this.setState({
-                //             addCartSuccess: false
-                //         })
-                //     }
-                // }
                 if(data.errCode===2) {
                     alert(data.errMessage)
                 }
                 if(data.errCode===3) {
                     alert(data.errMessage)
                 }
-                if(this.state.addCartSuccess === false) {
-                            this.setState({
-                                addCartSuccess: true
-                            })
-                        }
-                        else {
-                            this.setState({
-                                addCartSuccess: false
-                            })
-                        }
-            } else {
-                alert('bạn chưa đăng nhập')
+                if(data.errCode==0||data.errCode==1) {
+                    alert('Thêm thành công');
+                    if(this.state.addCartSuccess === false) {
+                        this.setState({
+                            addCartSuccess: true
+                        })
+                    }
+                    else {
+                        this.setState({
+                            addCartSuccess: false
+                        })
+                    }
+                }
             }
-            
-            }
+        } else {
+            alert('bạn chưa đăng nhập')
+        }
             
         }
     
@@ -173,10 +166,10 @@ class DetailClothingPage extends Component {
                     </div>
                     <div className='size'>
                         <ul>
-                            <li onClick={() =>{this.selectSizeClothing('1')}} style={{border:this.state.sizeClothing===1? '1px solid black':''}}>1</li>
-                            <li onClick={() =>{this.selectSizeClothing('2')}} style={{border:this.state.sizeClothing===2? '1px solid black':''}}>2</li>
-                            <li onClick={() =>{this.selectSizeClothing('3')}} style={{border:this.state.sizeClothing===3? '1px solid black': ''}}>3</li>
-                            <li onClick={() =>{this.selectSizeClothing('4')}} style={{border:this.state.sizeClothing===4? '1px solid black': ''}}>4</li>
+                            <li onClick={() =>{this.selectSizeClothing('1')}} style={{border:this.state.sizeClothing==1? '1px solid black':''}}>1</li>
+                            <li onClick={() =>{this.selectSizeClothing('2')}} style={{border:this.state.sizeClothing==2? '1px solid black':''}}>2</li>
+                            <li onClick={() =>{this.selectSizeClothing('3')}} style={{border:this.state.sizeClothing==3? '1px solid black': ''}}>3</li>
+                            <li onClick={() =>{this.selectSizeClothing('4')}} style={{border:this.state.sizeClothing==4? '1px solid black': ''}}>4</li>
                         </ul>
                     </div>
                     <div className='add-to-cart-button'>

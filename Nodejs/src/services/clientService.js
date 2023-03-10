@@ -139,8 +139,33 @@ let getAllClient = () => {
     })
 }
 
+let deleteClient = (idClient) => {
+    return new Promise(async(resolve,reject) => {
+        try {
+            await Client.deleteOne({
+                _id: idClient
+            })
+            .then(() => {
+                resolve({
+                    errCode: 0,
+                    errMessage: 'Xóa thành công'
+                })
+            })
+            .catch(()=> {
+                resolve({
+                    errCode: 1,
+                    errMessage: 'Fail'
+                })
+                })
+        } catch (error) {
+            reject(error)
+        }
+    })
+}
+
 module.exports = {
     handleClientLogin: handleClientLogin,
     handleClientSignUp: handleClientSignUp,
-    getAllClient: getAllClient
+    getAllClient: getAllClient,
+    deleteClient: deleteClient
 }

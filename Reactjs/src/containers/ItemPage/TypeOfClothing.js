@@ -48,15 +48,16 @@ class TypeOfProduct extends Component {
                 pathname: `/for-him`
             })
         } else {
-            this.props.history.push ({
+            await this.props.history.push ({
                 pathname: `/for-him/${type}`
             })
-        }
-        let response = await getClothingByType(this.props.match.params.type);
+            let response = await getClothingByType(this.props.match.params.type);
 
-        await this.setState({
-            arrClothings: response.clothings
-        })
+            await this.setState({
+                arrClothings: response.clothings
+            })
+        }
+        
         console.log(this.state.arrClothings)
     }
 
@@ -138,7 +139,7 @@ class TypeOfProduct extends Component {
                             TÚI & VÍ
                         </li>
                         <li className='sm:w-1/4'
-                        onClick={() => {this.showTypeOfClothing('hoodie&sweater')}}>
+                        onClick={() => {this.showTypeOfClothing('hoodieandsweater')}}>
                             HOODIES & SWEATSHIRT
                         </li>
                     </ul>

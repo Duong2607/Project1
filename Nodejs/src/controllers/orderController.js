@@ -28,9 +28,17 @@ let handleGetAllOrder = async(req, res) => {
     });
 }
 
-
+let handleGetOrderById = async(req, res) => {
+    let orderData = await orderService.getOrderByIdClient(req.body.id);
+    return res.status(200).json({
+        errCode: orderData.errCode,
+        errMessage: orderData.errMessage,
+        orders: orderData.orders ? orderData.orders : {}
+    });
+}
 
 module.exports = {
     handleAddOrder: handleAddOrder,
-    handleGetAllOrder: handleGetAllOrder
+    handleGetAllOrder: handleGetAllOrder,
+    handleGetOrderById: handleGetOrderById
 } 

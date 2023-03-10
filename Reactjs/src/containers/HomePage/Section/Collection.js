@@ -6,25 +6,19 @@ import Slider from 'react-slick';
 import "slick-carousel/slick/slick.css";
 import "slick-carousel/slick/slick-theme.css";
 import { getAllClothings } from '../../../services/clothingService';
-import  {getDataCollectionApi} from "../../../services/collectionService"
+
 import { withRouter } from 'react-router-dom';
 
 class Collection extends Component {
     constructor () {
         super();
         this.state = {
-          collection: ''
         }}
         async componentDidMount() {
           let response = await getAllClothings();
           this.setState({
               arrClothings: response.clothings
           })
-          let data = await getDataCollectionApi('November Collection');
-          this.setState({
-              collection: data.collection
-          })
-         
       }    
       
 
@@ -38,9 +32,6 @@ class Collection extends Component {
     
     render() {
       let arrClothings = this.state.arrClothings;
-      let collection = this.state.collection;
-      console.log('data',collection.image1_for_slider)
-  
         let settings = {
             dots: false,
             infinite: true,
@@ -100,11 +91,11 @@ class Collection extends Component {
             <div className='collection-demo'> 
               <Slider {...settings2}>
                 <div className='collection-demo-content'>
-                  <div className='image-for-slider' style={{backgroundImage: `url(${collection.image1_for_slider}`}}>
+                  <div className='image-for-slider' style={{backgroundImage: `url(https://ssstutter.com/img/lookbook/2.jpg`}}>
                 </div>
                 </div>
                 <div className='collection-demo-content'>
-                  <div className='image-for-slider' style={{backgroundImage: `url(${collection.image2_for_slider}`}}>
+                  <div className='image-for-slider' style={{backgroundImage: `url(https://ssstutter.com/img/lookbook/1.jpg`}}>
                 </div>
                 </div>
               </Slider>

@@ -16,6 +16,15 @@ class Header extends Component {
                 {/* thanh navigator */}
                 <div className="header-tabs-container">
                     <Navigator menus={adminMenu} />
+                    {/* <div className='root'>
+                        <span>Hệ thống</span>
+                        <ul class="bonus">
+                                    <li><span href="">Quản lý người dùng</span></li>
+                                    <li><span href="">Quản lý sn</span></li>
+                                    <li><span href="">Jackets</span></li>
+                        </ul>
+                    </div> */}
+                    
                 </div>
 
                 {/* nút logout */}

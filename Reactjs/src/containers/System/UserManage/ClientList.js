@@ -2,7 +2,7 @@ import React, { Component} from 'react';
 
 import { connect } from 'react-redux';
 
-import { getAllClient } from '../../../services/clientService';
+import { getAllClient, deleteClient } from '../../../services/clientService';
 import io from "socket.io-client";
 // import './ClientList.scss'
 
@@ -39,7 +39,30 @@ class ClientList extends Component {
        
     }
 
+    handleDeleteClient = async (id) => {
+        let check = window.confirm('Xác nhận xóa');
+        if(check) {
+            try {
 
+                let res = await deleteClient(id);
+                if(res&&res.errCode==0) {
+                    let clientListData = await getAllClient();
+                    if(clientListData.errCode==0) {
+                        await this.setState({
+                            clientList: clientListData.client,
+                        })
+                    }
+                    alert(res.errMessage);
+                }else {
+                    alert(res.errMessage);
+                }
+    
+            } catch (error) {
+                console.log(error)
+            }
+        }
+        
+    }
 
     render() {
         let clientList = this.state.clientList;
@@ -52,7 +75,6 @@ class ClientList extends Component {
                             <th>ID User</th>
                             <th>Email</th>
                             <th>Name</th>
-                            <th>Fix</th>
                             <th>Delete</th>
                         </tr>
                         
@@ -62,19 +84,10 @@ class ClientList extends Component {
                                 <th>{item._id}</th>
                                 <th>{item.email}</th>
                                 <th>{item.first_Name+' '+item.last_Name}</th>
-                                <th>
-                                            <div className='view-button fix'
-                                            // onClick={async() => {
-                                            //     await this.openModalFixClothing(item);
-                                            // }}
-                                            >
-                                                <i class="fa fa-wrench" aria-hidden="true"></i>
-                                            </div>
-                                            
-                                        </th>
+                                
                                         <th>
                                             <div className='view-button delete'
-                                            // onClick={()=>{this.handleDeleteClothing(item._id)}}
+                                            onClick={()=>{this.handleDeleteClient(item._id)}}
                                             >
                                                 <i class="fa fa-trash" aria-hidden="true"></i>
                                             </div>

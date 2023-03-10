@@ -118,7 +118,7 @@ class ForHimPage extends Component {
                             TÚI & VÍ
                         </li>
                         <li className='sm:w-1/4'
-                        onClick={() => {this.showTypeOfClothing('hoodie&sweater')}}>
+                        onClick={() => {this.showTypeOfClothing('hoodieandsweater')}}>
                             HOODIES & SWEATSHIRT
                         </li>
                     </ul>

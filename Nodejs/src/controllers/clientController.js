@@ -37,10 +37,29 @@ let handleGetAllClient = async(req, res) => {
     })
 }
 
+let handleDeleteClient = async(req, res) => {
+    if(req.body.id){
+        let data = await clientService.deleteClient(req.body.id);
+        return res.status(200).json({
+            errCode: data.errCode,
+            errMessage: data.errMessage,
+          
+        });
+    }
+    else {
+        return res.status(200).json({
+            errCode: 1,
+            errMessage: 'Missing _id'
+        });
+    }
+    
+
+}
 
 
 module.exports = {
     handleLogin: handleLogin,
     handleSignUp: handleSignUp,
-    handleGetAllClient: handleGetAllClient
+    handleGetAllClient: handleGetAllClient,
+    handleDeleteClient: handleDeleteClient
 } 

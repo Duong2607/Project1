@@ -19,7 +19,16 @@ const createNewUser = (data) => {
 const getAllClient = () => {
     return axios.get('/api/get-all-client',{})
 }
+
+const deleteClient = (id) => {
+    return axios.delete('/api/delete-client', {
+        data: {
+            id: id,
+          }
+    });
+}
 export { handleLoginClientApi, 
         createNewUser,
-        getAllClient
+        getAllClient,
+        deleteClient
      }

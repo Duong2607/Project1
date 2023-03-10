@@ -2,11 +2,11 @@ export const adminMenu = [
     { //hệ thống
         name: 'menu.system.header', menus: [
             {
-                name: 'menu.system.system-administrator.header',
+                name: 'Quản lý',
                 subMenus: [
-                    { name: 'menu.system.system-administrator.user-manage', link: '/system/user-manage' },
-                    { name: 'menu.system.system-administrator.product-manage', link: '/system/product-manage' },
-                    { name: 'menu.system.system-administrator.order-manage', link: '/system/order-manage' },
+                    { name: 'Quản lý người dùng', link: '/system/user-manage' },
+                    { name: 'Quản lý sản phẩm', link: '/system/product-manage' },
+                    { name: 'Quản lý đơn hàng', link: '/system/order-manage' },
                 ]
             },
             // { name: 'menu.system.system-parameter.header', link: '/system/system-parameter' },

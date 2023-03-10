@@ -72,27 +72,32 @@
         background-color: #fff;
         top: 37px;
     .home-content-container {
-        padding: 0 160px ;
+        padding: 0 120px ;
         position: relative;
         .main-nav{
             display: flex;
-            
             .child1-nav {
-                padding: 16px 0;
                 width: 50%;
+            
                 .main-list{
                     list-style: none;
                     display: flex;
                     margin-bottom: 0;
+                    
                         li {
                             position: relative;
                             cursor: pointer;
+                            padding: 16px 0;
+                            &:hover {
+                                background-color: rgb(151, 154, 247);
+                                cursor: pointer;
+                            }
                             span{
                                 color: #333;
                                 text-decoration: none;
                                 text-transform: uppercase;
                                 margin: 0 16px;
-                            
+                                
                             }
 
                             .bonus-clothing {
@@ -126,7 +131,10 @@
                                 
                             }
                         }
+
+
                         .clothing-node{
+                            
                             &:hover ul{
                                 display: block;
                             

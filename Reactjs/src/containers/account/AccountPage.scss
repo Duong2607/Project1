@@ -1,4 +1,10 @@
 .account-page {
 
     padding: 10% 6%;
+    min-height: 40vh;
+    .history {
+        h2 {
+            padding: 16px 0;
+        }
+    }
 }

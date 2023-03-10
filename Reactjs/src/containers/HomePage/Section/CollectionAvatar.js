@@ -2,53 +2,39 @@
 import React, { Component } from 'react';
 import { connect } from 'react-redux';
 import './CollectionAvatar.scss';
-import  {getDataCollectionApi} from "../../../services/collectionService";
 import { withRouter } from 'react-router-dom';
 
 class CollectionAvatar extends Component {
     constructor () {
         super();
         this.state = {
-            childAvatar: '',
-            collection: '',
         }}
 
         async componentDidMount() {
-            let response = await getDataCollectionApi('November Collection');
-            console.log(response);
-            this.setState({
-                collection: response.collection
-
-                
-            })
-
+            
         }
 
         goToForHimPage = () => {
             this.props.history.push ({
               pathname: '/for-him',
-              
           })
-        
-          }
+        }
 
     render() {
         
-       let collection = this.state.collection
-  
         return (
             <div className='section-collectionavatar'>
                 <div className='main-image'>
-                <div className='child-avatar' style={{backgroundImage: `url(${collection.child_avatar})`}}>
+                <div className='child-avatar' style={{backgroundImage: `url(https://dashboard.leanow.vn/upload/11-2022/1669103240542.jpeg)`}}>
                 </div>
                 </div>
                 <div className='type-image'>
                 <div className='image-for-men' 
                 onClick={() => {this.goToForHimPage()}}
-                style={{backgroundImage: `url(${collection.image_for_men})`}}
+                style={{backgroundImage: `url(https://dashboard.leanow.vn/upload/12-2022/1669853008259.jpeg)`}}
                 >
                 </div>
-                <div className='image-for-girl' style={{backgroundImage: `url(${collection.image_for_girl})`}}>
+                <div className='image-for-girl' style={{backgroundImage: `url(https://dashboard.leanow.vn/upload/12-2022/1669853043740.jpeg)`}}>
                 </div>
                 </div>
 

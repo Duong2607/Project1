@@ -8,6 +8,45 @@
     color: $common-text-color;
     height: 40px;
     position: relative;
+
+    .root {
+        padding: 10px 0;
+        span {
+            
+            text-decoration: none;
+            text-transform: uppercase;
+            margin: 16px 16px;
+        }
+        .bonus {
+            color: black;
+            position: absolute;
+            list-style: none;
+            background-color: #fff;
+            box-shadow: 0 0 10px rgba(0, 0, 0, 0.3);
+            min-width: 160px;
+            top: 100%;
+            left: 0;
+            padding-left: 0;
+            height: 98px;
+            text-align: center;
+            display: none;
+            z-index: 10;
+            li {
+                font-size: 12px;
+                padding: 6px 20px;
+                &:hover {
+                    background-color: rgb(151, 154, 247);
+                    cursor: pointer;
+                }
+        }
+    }
+        
+         
+        &:hover ul{
+            display: block;
+        }
+    }
+
     .btn-logout {
         color: $common-text-color;
         line-height: 40px;

@@ -1,7 +1,7 @@
 import React, { Component } from 'react';
 
 import { connect } from 'react-redux';
-import { getAllUser } from '../../../services/userService';
+import { getAllUser, deleteUser } from '../../../services/userService';
 import io from "socket.io-client";
 // import './AdminList.scss'
 
@@ -37,6 +37,30 @@ class AdminList extends Component {
        
     }
 
+    handleDeleteAdmin = async (id) => {
+        let check = window.confirm('Xác nhận xóa');
+        if(check) {
+            try {
+
+                let res = await deleteUser(id);
+                if(res&&res.errCode==0) {
+                    let adminListData = await getAllUser();
+                    if(adminListData.errCode==0) {
+                        await this.setState({
+                            adminList: adminListData.user,
+                        })
+                    }
+                    alert(res.errMessage);
+                }else {
+                    alert(res.errMessage);
+                }
+    
+            } catch (error) {
+                console.log(error)
+            }
+        }
+        
+    }
 
 
     render() {
@@ -50,7 +74,6 @@ class AdminList extends Component {
                             <th>ID User</th>
                             <th>Email</th>
                             <th>Name</th>
-                            <th>Fix</th>
                             <th>Delete</th>
                         </tr>
                         
@@ -61,22 +84,12 @@ class AdminList extends Component {
                                 <th>{item.email}</th>
                                 <th>{item.first_Name+' '+item.last_Name}</th>
                                 <th>
-                                            <div className='view-button fix'
-                                            // onClick={async() => {
-                                            //     await this.openModalFixClothing(item);
-                                            // }}
-                                            >
-                                                <i class="fa fa-wrench" aria-hidden="true"></i>
-                                            </div>
-                                            
-                                        </th>
-                                        <th>
-                                            <div className='view-button delete'
-                                            // onClick={()=>{this.handleDeleteClothing(item._id)}}
-                                            >
-                                                <i class="fa fa-trash" aria-hidden="true"></i>
-                                            </div>
-                                        </th>
+                                    <div className='view-button delete'
+                                    onClick={()=>{this.handleDeleteAdmin(item._id)}}
+                                    >
+                                    <i class="fa fa-trash" aria-hidden="true"></i>
+                                    </div>
+                                </th>
                                 </tr>
                             )
                         }):

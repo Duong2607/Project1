@@ -19,7 +19,6 @@ class HomeHeader extends Component {
           password: '',
           first_Name: '',
           last_Name: '',
-          update: false      
         };
         this.handleOpenCartModal = this.handleOpenCartModal.bind(this);
         this.handleCloseCartModal = this.handleCloseCartModal.bind(this);
@@ -27,7 +26,6 @@ class HomeHeader extends Component {
         this.handleCloseModal = this.handleCloseModal.bind(this);
         this.handleCloseModalLogin = this.handleCloseModalLogin.bind(this);
         this.handleOpenModalLogin = this.handleOpenModalLogin.bind(this);
-        this.handleUpdate = this.handleUpdate.bind(this);
     }
       handleOpenCartModal() {
         this.setState({ showCartModal: true });
@@ -41,19 +39,12 @@ class HomeHeader extends Component {
         if(!clientIsLoggedIn){
         this.setState({ showModal: true });
         } 
-        // try {
             if(clientIsLoggedIn) {
-              // console.log(this.props.clientInfor)
                 console.log(this.props.clientIsLoggedIn)
                 this.props.history.push ({
                     pathname: '/account',
                     
                 })
-        //     }
-        // } catch (error) {
-        //     console.log(error)
-        // }
-        
       }}
 
       handleCloseModal () {
@@ -82,16 +73,15 @@ class HomeHeader extends Component {
         try {
             let reponse = await createNewUser(data);
             if(reponse && reponse.errMessage !=='OK'){
-                alert(reponse.errMessage)
+                alert(reponse.errMessage);
             } else {
                 this.setState({
                     showModal: false,
                     
                 });
-                alert(reponse.errMessage)
+                alert('Đăng ký thành công');
                 
             }
-            console.log(reponse);
         } catch (e) {
             console.log(e)
         }
@@ -149,28 +139,12 @@ class HomeHeader extends Component {
 
       }
 
-        handleUpdate = () => {
-        // console.log('như loz')
-        if(this.state.update){
-            this.setState({
-                update: true
-            })
-        } else {
-            this.setState({
-                update: true
-            })
-        }
-        
-    }
-
     componentDidUpdate(prevProps, prevState, snapshot) {
-        if(prevState.update !== this.state.update) {
         
-         
-            this.componentDidMount()
-           
-            
-         }
+        // nhận thấy sản phẩm được thêm vào giỏ để mở giỏ
+        if(prevProps.addCartSuccess !== this.props.addCartSuccess) {
+            this.setState({ showCartModal: true });
+        }
       }
       
 
@@ -200,7 +174,6 @@ class HomeHeader extends Component {
                         </div>
                     </div>
                     <div className='logo'>
-                        {/* <i class="fas fa-bars"></i> */}
                         <div className='header-logo'>
                             <img src='https://ssstutter.com/img/new_logo.png'>
                             </img>
@@ -215,34 +188,23 @@ class HomeHeader extends Component {
                     <div className='child1-nav'>
                         
                          <ul className='main-list'> 
-                            <li className='home-node'>
-                                <div onClick={() => {this.redirectToHome()}}>
+                            <li className='home-node'
+                            onClick={() => {this.redirectToHome()}}
+                            >
+                                <div >
                                     <span>HOME</span>
                                 </div>
                             </li>
-                            <li className='clothing-node'>
+                            <li className='clothing-node'
+                            onClick={()=> {this.redirectToClothingPage()}}>
                                 <div>
-                                   <span
-                                   onClick={()=> {this.redirectToClothingPage()}}
-                                   >CLOTHING</span> 
+                                   <span>CLOTHING</span> 
                                 </div>
-                                
-                                <ul class="bonus-clothing">
+                                {/* <ul class="bonus-clothing">
                                     <li><span href="">Tees</span></li>
                                     <li><span href="">Pants</span></li>
                                     <li><span href="">Jackets</span></li>
-                                </ul>
-                            </li>
-                            
-                            <li className='contact-node'>
-                                <span href='/login'>
-                                    NEW
-                                </span>
-                            </li>
-                            <li className='Event'>
-                                <span href='/login'>
-                                    W/22 LOOKBOOK
-                                </span>
+                                </ul> */}
                             </li>
                         </ul> 
                     </div>

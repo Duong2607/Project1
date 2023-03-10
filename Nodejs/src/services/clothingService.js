@@ -44,14 +44,13 @@ let creatClothing = (data) => {
             if(data.nameClothing&&data.price&&data.imgClothing&&data.color&&
                 data.sum_size_1.toString(10)&&data.sum_size_2.toString(10)
                 &&data.sum_size_3.toString(10)&&data.sum_size_4.toString(10)
-                &&data.collection&&data.type) {
+                &&data.type) {
                 const newclothing = new clothing({
                     name: data.nameClothing,
                     img: data.imgClothing,
                     price: data.price,
                     type: data.type,
                     color: data.color,
-                    collection_name: data.collection,
                     sum_size_1: data.sum_size_1,
                     sum_size_2: data.sum_size_2,
                     sum_size_3: data.sum_size_3,
@@ -95,7 +94,6 @@ let updateClothing = (data) => {
                     udClothing.img= data.imgClothing;
                     udClothing.price= data.price;
                     udClothing.color= data.color;
-                    udClothing.collection_name= data.collection;
                     udClothing.type= data.type;
                     udClothing.sum_size_1= data.sum_size_1;
                     udClothing.sum_size_2= data.sum_size_2;

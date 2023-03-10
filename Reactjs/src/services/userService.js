@@ -14,4 +14,12 @@ const handleLoginClientApi = (userEmail, userPassword) => {
 const getAllUser = () => {
     return axios.get('api/get-all-user');
 }
-export { handleLoginApi,handleLoginClientApi, handleCreatNewAdmin, getAllUser }
+
+const deleteUser = (id) => {
+    return axios.delete('/api/delete-user', {
+        data: {
+            id: id,
+          }
+    })
+}
+export { handleLoginApi,handleLoginClientApi, handleCreatNewAdmin, getAllUser, deleteUser }

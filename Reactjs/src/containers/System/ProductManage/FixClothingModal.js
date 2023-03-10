@@ -18,7 +18,6 @@ class FixClothingModal extends Component {
             sum_size_4: '',
             color: '',
             type: '',
-            collection: '',
         }
     }
 
@@ -35,7 +34,6 @@ class FixClothingModal extends Component {
                 sum_size_4: this.props.valueInput.sum_size_4,
                 color: this.props.valueInput.color,
                 type: this.props.valueInput.type,
-                collection: this.props.valueInput.collection,
                })
         }
        
@@ -136,18 +134,9 @@ class FixClothingModal extends Component {
                             <div className='input-container'>
                                 <label>Giá</label>
                                 <input
-                                type='text'
+                                type='number'
                                 onChange={(event) => {this.handleOnChangeInput(event,'price')}}
                                 value={copyState.price}
-                                >
-                                </input>
-                            </div>
-                            <div className='input-container'>
-                                <label>Collection</label>
-                                <input
-                                type='text'
-                                onChange={(event) => {this.handleOnChangeInput(event,'collection')}}
-                                value={copyState.collection}
                                 >
                                 </input>
                             </div>
@@ -167,7 +156,7 @@ class FixClothingModal extends Component {
                                     <option value="short">short</option>
                                     <option value="shoe">shoe</option>
                                     <option value="bag">bag</option>
-                                    <option value="hoodie&sweater">hoodie&sweater</option>
+                                    <option value="hoodieandsweater">hoodieandsweater</option>
                                 </select>
                             </div>
                             <div className='input-container'>

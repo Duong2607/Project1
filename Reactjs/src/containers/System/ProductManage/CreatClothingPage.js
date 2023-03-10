@@ -16,7 +16,6 @@ class CreatClothingPage extends Component {
             sum_size_2: '',
             sum_size_3: '',
             sum_size_4: '',
-            collection: '',
             type: '',
             color: ''
         }
@@ -62,7 +61,6 @@ class CreatClothingPage extends Component {
                             sum_size_2: '',
                             sum_size_3: '',
                             sum_size_4: '',
-                            collection: '',
                             type: '',
                             color: ''
                         })
@@ -80,7 +78,7 @@ class CreatClothingPage extends Component {
 
       checkValideInput = () => {
         let isValid = true;
-        let arrInput = ['nameClothing', 'imgClothing', 'price','color','collection','type','sum_size_1', 'sum_size_2', 'sum_size_3', 'sum_size_4'];
+        let arrInput = ['nameClothing', 'imgClothing', 'price','color','type'];
         for(let i = 0; i < arrInput.length; i++) {
             if(!this.state[arrInput[i]]){
                 isValid = false;
@@ -97,9 +95,9 @@ class CreatClothingPage extends Component {
         let isValid = true;
         let arrInput = ['sum_size_1', 'sum_size_2', 'sum_size_3', 'sum_size_4'];
         for(let i = 0; i < arrInput.length; i++) {
-            if(isNaN(Number(this.state[arrInput[i]])) ){
+            if(!String(this.state[arrInput[i]])){
                 isValid = false;
-                alert('Fail parameter: '+arrInput[i]);
+                alert('Missing parameter: '+arrInput[i]);
                 break;
             }
         }
@@ -137,7 +135,7 @@ class CreatClothingPage extends Component {
                             <div className='input-container'>
                                 <label>Giá</label>
                                 <input
-                                type='text'
+                                type='number'
                                 onChange={(event) => {this.handleOnChangeInput(event,'price')}}
                                 value={copyState.price}
                                 >
@@ -149,15 +147,6 @@ class CreatClothingPage extends Component {
                                 type='text'
                                 onChange={(event) => {this.handleOnChangeInput(event,'color')}}
                                 value={copyState.color}
-                                >
-                                </input>
-                            </div>
-                            <div className='input-container'>
-                                <label>Collection</label>
-                                <input
-                                type='text'
-                                onChange={(event) => {this.handleOnChangeInput(event,'collection')}}
-                                value={copyState.collection}
                                 >
                                 </input>
                             </div>
@@ -178,13 +167,14 @@ class CreatClothingPage extends Component {
                                     <option value="short">short</option>
                                     <option value="hoodie&sweater">shoe</option>
                                     <option value="bag">bag</option>
-                                    <option value="hoodie&sweater">hoodie&sweater</option>
+                                    <option value="hoodieandsweater">hoodieandsweater</option>
                                 </select>
                             </div>
                             <div className='input-container'>
                                 <label>Số lượng size 1</label>
                                 <input
-                                type='text'
+                                type='number'
+                                min={0}
                                 onChange={(event) => {this.handleOnChangeInput(event,'sum_size_1')}}
                                 value={copyState.sum_size_1}
                                 >
@@ -193,7 +183,8 @@ class CreatClothingPage extends Component {
                             <div className='input-container'>
                                 <label>Số lượng size 2</label>
                                 <input
-                                type='text'
+                                type='number'
+                                min={0}
                                 onChange={(event) => {this.handleOnChangeInput(event,'sum_size_2')}}
                                 value={copyState.sum_size_2}
                                 >
@@ -202,7 +193,8 @@ class CreatClothingPage extends Component {
                             <div className='input-container'>
                                 <label>Số lượng size 3</label>
                                 <input
-                                type='text'
+                                type='number'
+                                min={0}
                                 onChange={(event) => {this.handleOnChangeInput(event,'sum_size_3')}}
                                 value={copyState.sum_size_3}
                                 >
@@ -211,7 +203,8 @@ class CreatClothingPage extends Component {
                             <div className='input-container'>
                                 <label>Số lượng size 4</label>
                                 <input
-                                type='text'
+                                type='number'
+                                min={0}
                                 onChange={(event) => {this.handleOnChangeInput(event,'sum_size_4')}}
                                 value={copyState.sum_size_4}
                                 >

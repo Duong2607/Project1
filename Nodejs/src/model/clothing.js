@@ -7,7 +7,6 @@ const Clothing = new Schema({
     price: {type: Number},
     type: {type: String},
     color: {type: String},
-    collection_name: {type: String},
     sum_size_1: {type: Number},
     sum_size_2: {type: Number},
     sum_size_3: {type: Number},
