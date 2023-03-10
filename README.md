@@ -1,12 +1,13 @@
 # Project1
+
 Set up server
 
-npm install
-npm run dev
-
-
+npm install;
+#
+npm start
 
 Set up client
 
-npm install
+npm install;
+#
 npm start 
